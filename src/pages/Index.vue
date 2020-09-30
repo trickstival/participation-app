@@ -1,8 +1,7 @@
 <template>
-  <q-page class="">
-
+  <q-page>
     <div class="flex items-center text-grey-9 column">
-      <h3>
+      <h3 class="q-mb-md">
         DATA
       </h3>
       <div>
@@ -10,9 +9,10 @@
       </div>
     </div>
 
-    <div class="flex justify-center q-mt-xl">
+    <div class="flex justify-center q-mt-xl q-px-sm">
       <div class="participation-data">
-        <participation-table />
+        <participation-table class="full-width" />
+        <participation-chart />
       </div>
     </div>
 
@@ -21,11 +21,32 @@
 
 <script>
 import ParticipationTable from '../components/ParticipationTable'
+import ParticipationChart from '../components/ParticipationChart'
 
 export default {
   name: 'PageIndex',
   components: {
-    ParticipationTable
+    ParticipationTable,
+    ParticipationChart
+  },
+  methods: {
+    getParticipations () {
+      this.$axios.get('/participation')
+        .then((res) => {
+          const participations = res.data
+          this.$store.commit('setParticipations', participations)
+        })
+        .catch(error => {
+          console.error(error)
+          this.$q.notify({
+            type: 'negative',
+            message: 'Could not fetch participation'
+          })
+        })
+    }
+  },
+  created () {
+    this.getParticipations()
   }
 }
 </script>
@@ -35,6 +56,14 @@ export default {
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr;
-  max-width: 1000px;
+  column-gap: 100px;
+  width: 70%;
+  max-width: 1300px;
+}
+
+@media screen and (max-width: $breakpoint-md-min) {
+  .participation-data {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

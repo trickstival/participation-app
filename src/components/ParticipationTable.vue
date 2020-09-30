@@ -3,6 +3,8 @@
     :columns="columns"
     :data="rows"
     row-key="id"
+    hide-bottom
+    class="participation-table"
   >
 
   </q-table>
@@ -16,22 +18,26 @@ export default {
         {
           name: 'index',
           label: '',
-          field: 'index'
+          field: 'index',
+          align: 'center'
         },
         {
           name: 'firstName',
           label: 'First name',
-          field: 'firstName'
+          field: 'firstName',
+          align: 'left'
         },
         {
           name: 'lastName',
           label: 'Last name',
-          field: 'lastName'
+          field: 'lastName',
+          align: 'left'
         },
         {
           name: 'participation',
           label: 'Participation',
-          field: 'participation'
+          field: 'participation',
+          align: 'center'
         }
       ]
     }
@@ -40,7 +46,9 @@ export default {
     rows () {
       return this.$store.state.participations.map((participation, index) => {
         return {
-          ...participation,
+          firstName: participation.firstName,
+          lastName: participation.lastName,
+          participation: participation.participation + ' %',
           index
         }
       })
@@ -49,6 +57,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.participation-table {
+  max-width: 100vw;
+}
 </style>

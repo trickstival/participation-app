@@ -19,6 +19,14 @@ export default function (/* { ssrContext } */) {
     state: {
       participations: []
     },
+    mutations: {
+      setParticipations (state, participations) {
+        state.participations = participations
+      },
+      addParticipation (state, participation) {
+        state.participations.push(participation)
+      }
+    },
     // enable strict mode (adds overhead!)
     // for dev mode only
     strict: process.env.DEV

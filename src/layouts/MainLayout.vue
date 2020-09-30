@@ -1,7 +1,7 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lhh Lpr lFf">
     <q-header class="header flex flex-center" elevated>
-      <participation-form />
+      <participation-form class="participation-form" />
     </q-header>
 
     <q-page-container>
@@ -30,5 +30,15 @@ export default {
 .header {
   height: 150px;
   background-color: #00b8e2;
+}
+.participation-form {
+  width: 70%;
+  max-width: 1200px;
+}
+
+@media screen and (max-width: $breakpoint-md-min) {
+  .header {
+    height: 450px;
+  }
 }
 </style>
