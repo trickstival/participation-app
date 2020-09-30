@@ -1,20 +1,10 @@
-import { mount, createLocalVue, shallowMount } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
+import { useQuasar } from '../quasarSetup'
 import QBUTTON from './demo/QBtn-demo.vue'
-import * as All from 'quasar'
-// import langEn from 'quasar/lang/en-us' // change to any language you wish! => this breaks wallaby :(
-const { Quasar } = All
-
-const components = Object.keys(All).reduce((object, key) => {
-  const val = All[key]
-  if (val && val.component && val.component.name != null) {
-    object[key] = val
-  }
-  return object
-}, {})
 
 describe('Mount Quasar', () => {
   const localVue = createLocalVue()
-  localVue.use(Quasar, { components }) // , lang: langEn
+  localVue.use(useQuasar)
 
   const wrapper = mount(QBUTTON, {
     localVue

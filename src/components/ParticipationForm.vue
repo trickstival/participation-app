@@ -13,6 +13,7 @@
             v => v.length < 30 || 'Please, enter a name with less than 30 characters',
           ]"
           label="First Name"
+          class="first-name-input"
           bg-color="white"
           outlined
           required
@@ -26,6 +27,7 @@
             v => v.length < 30 || 'Please, enter a name with less than 30 characters',
           ]"
           label="Last Name"
+          class="last-name-input"
           bg-color="white"
           outlined
           required
@@ -39,6 +41,7 @@
             v => v > 0 || 'Please, enter a value greater than 0',
           ]"
           label="Participation (%)"
+          class="participation-input"
           bg-color="white"
           type="number"
           min="0"
