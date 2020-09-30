@@ -11,14 +11,14 @@ module.exports = {
   },
 
   env: {
-    browser: true
+    browser: true,
+    'jest/globals': true
   },
 
   // Rules order is important, please avoid shuffling them
   extends: [
     // Base ESLint recommended rules
     // 'eslint:recommended',
-
 
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
@@ -35,7 +35,7 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
     // required to lint *.vue files
     'vue',
-
+    'jest'
   ],
 
   globals: {
@@ -64,7 +64,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'prefer-promise-reject-errors': 'off',
-
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
