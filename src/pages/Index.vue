@@ -11,7 +11,7 @@
 
     <div class="flex justify-center q-mt-xl q-px-sm">
       <div class="participation-data">
-        <participation-table class="full-width" />
+        <participation-table />
         <participation-chart />
       </div>
     </div>

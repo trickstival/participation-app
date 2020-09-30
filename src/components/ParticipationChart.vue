@@ -3,7 +3,7 @@
     <apex-chart
       :options="chartOptions"
       :series="series"
-      :width="$q.screen.lt.sm ? '250' : '400'"
+      :width="$q.screen.lt.sm ? 250 : 400"
       type="donut"
     />
   </div>

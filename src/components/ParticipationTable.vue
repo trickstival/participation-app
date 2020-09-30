@@ -59,6 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .participation-table {
-  max-width: 100vw;
+  width: 100%;
+  max-width: 75vw;
 }
 </style>
