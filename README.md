@@ -1,4 +1,4 @@
-# Participation app (frontent)
+# Participation app (frontend)
 
 A technical test
 
